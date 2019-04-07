@@ -2,10 +2,9 @@ package com.ve3yn4uk.springboot.restcrudapihibernate.rest;
 
 import com.ve3yn4uk.springboot.restcrudapihibernate.dao.IEmployeeDao;
 import com.ve3yn4uk.springboot.restcrudapihibernate.entity.Employee;
+import com.ve3yn4uk.springboot.restcrudapihibernate.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,16 +16,31 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private IEmployeeDao employeeDao;
+    private IEmployeeService employeeService;
 
     @Autowired
-    private EmployeeRestController(IEmployeeDao myEmployeeDao) {
-        employeeDao = myEmployeeDao;
+    private EmployeeRestController(IEmployeeService myEmployeeService) {
+
+        employeeService = myEmployeeService;
     }
 
     @GetMapping("/employees")
     public List<Employee> findAll() {
 
-        return employeeDao.findAll();
+        return employeeService.findAll();
     }
+
+    @GetMapping("/employees/{employeeId}")
+    public Employee getEmployee(@PathVariable int employeeId) {
+
+        Employee myEmployee = employeeService.findById(employeeId);
+
+        if (myEmployee == null) {
+            throw new RuntimeException("Employee id not found " + employeeId);
+        }
+
+        return myEmployee;
+    }
+
+
 }
