@@ -20,8 +20,8 @@ public class EmployeeDaoHibernate implements IEmployeeDao {
     private EntityManager entityManager;
 
     @Autowired
-    public EmployeeDaoHibernate(EntityManager myEntityManager) {
-        entityManager = myEntityManager;
+    public EmployeeDaoHibernate(EntityManager theEntityManager) {
+        entityManager = theEntityManager;
     }
 
     @Override
@@ -30,9 +30,9 @@ public class EmployeeDaoHibernate implements IEmployeeDao {
 
         Session currentSession = entityManager.unwrap(Session.class);
 
-        Query<Employee> myQuery = currentSession.createQuery("from employee", Employee.class);
+        Query<Employee> theQuery = currentSession.createQuery("from Employee", Employee.class);
 
-        List<Employee> employees = myQuery.getResultList();
+        List<Employee> employees = theQuery.getResultList();
 
         return employees;
     }
