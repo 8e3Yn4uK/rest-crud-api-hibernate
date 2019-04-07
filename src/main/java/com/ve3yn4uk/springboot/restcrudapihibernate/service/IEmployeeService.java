@@ -1,4 +1,4 @@
-package com.ve3yn4uk.springboot.restcrudapihibernate.dao;
+package com.ve3yn4uk.springboot.restcrudapihibernate.service;
 
 import com.ve3yn4uk.springboot.restcrudapihibernate.entity.Employee;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * Created by 8e3Yn4uK on 07.04.2019
  */
 
-public interface IEmployeeDao {
+public interface IEmployeeService {
 
     List<Employee> findAll();
 
