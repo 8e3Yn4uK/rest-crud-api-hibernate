@@ -4,6 +4,7 @@ import com.ve3yn4uk.springboot.restcrudapihibernate.dao.IEmployeeDao;
 import com.ve3yn4uk.springboot.restcrudapihibernate.entity.Employee;
 import com.ve3yn4uk.springboot.restcrudapihibernate.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class EmployeeRestController {
     private IEmployeeService employeeService;
 
     @Autowired
-    private EmployeeRestController(IEmployeeService myEmployeeService) {
+    private EmployeeRestController(@Qualifier("employeeServiceRepoImpl") IEmployeeService myEmployeeService) {
 
         employeeService = myEmployeeService;
     }
