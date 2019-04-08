@@ -14,12 +14,12 @@ import java.util.List;
  */
 
 @Service
-public class EmployeeServiceDAOImpl implements IEmployeeService {
+public class EmployeeService implements IEmployeeService {
 
     private IEmployeeDao employeeDao;
 
     @Autowired
-    public EmployeeServiceDAOImpl(@Qualifier("employeeDAOJpaImpl") IEmployeeDao myEmployeeDao) {
+    public EmployeeService(@Qualifier("employeeDAOJpaImpl") IEmployeeDao myEmployeeDao) {
         employeeDao = myEmployeeDao;
     }
 

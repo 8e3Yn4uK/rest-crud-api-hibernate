@@ -20,9 +20,8 @@ public class EmployeeRestController {
     private IEmployeeService employeeService;
 
     @Autowired
-    private EmployeeRestController(@Qualifier("employeeServiceRepoImpl") IEmployeeService myEmployeeService) {
-
-        employeeService = myEmployeeService;
+    public EmployeeRestController(IEmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/employees")

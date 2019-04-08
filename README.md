@@ -19,14 +19,13 @@ REST clients should be able to
 Used technologies:
 * Spring Boot
 * Hibernate
-* Spring Data
 * All Java Config,
 No XML
 
 DAO implementations with:
 * Hibernate API
 * Standart JPA API
-* Spring Data JPA
+
 
 
 
