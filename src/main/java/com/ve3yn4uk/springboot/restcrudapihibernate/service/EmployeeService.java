@@ -3,6 +3,7 @@ package com.ve3yn4uk.springboot.restcrudapihibernate.service;
 import com.ve3yn4uk.springboot.restcrudapihibernate.dao.IEmployeeDao;
 import com.ve3yn4uk.springboot.restcrudapihibernate.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,7 @@ public class EmployeeService implements IEmployeeService {
     private IEmployeeDao employeeDao;
 
     @Autowired
-    public EmployeeService(IEmployeeDao myEmployeeDao) {
+    public EmployeeService(@Qualifier("employeeDAOJpaImpl") IEmployeeDao myEmployeeDao) {
         employeeDao = myEmployeeDao;
     }
 

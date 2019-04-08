@@ -14,12 +14,12 @@ import java.util.List;
  */
 
 @Repository
-public class EmployeeDaoHibernate implements IEmployeeDao {
+public class EmployeeDAOHibernateImpl implements IEmployeeDao {
 
     private EntityManager entityManager;
 
     @Autowired
-    public EmployeeDaoHibernate(EntityManager theEntityManager) {
+    public EmployeeDAOHibernateImpl(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }
 
